@@ -1,0 +1,19 @@
+<h1><%= @post.title %></h1>
+<p><%= @post.description%></p>
+<h3>Comentarios</h3>
+<ul>
+<% @comments.each do |comment|%>
+    <li>
+        <%= comment.description%>
+    </li>
+<% end %>
+</ul>
+<div>
+    <%= form_for [@post, @comment] do |f| %>        
+        <%= f.text_area :description, size: "60x2" %>
+        <br>
+        <%= f.submit%>
+    <% end %>
+</div>
+<%=link_to "Home", root_path %>
+<%=link_to "Editar", edit_post_path(@post) %>

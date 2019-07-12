@@ -1,0 +1,17 @@
+<h1>Listado de Posts</h1>
+<p><%= link_to "Crear Post", new_post_path %></p>
+<table>
+    <tr>
+        <th> Id </th>
+        <th> Title </th>
+        <th> Acciones </th>
+    </tr>
+
+    <% @posts.each do |post|%>
+        <tr>
+            <td><%=  post.id%> </td>
+            <td><%=  post.title%> </td>
+            <td><%=  link_to "ver",post%> <%=link_to "Editar", edit_post_path(post) %> <%= link_to 'Destroy',  post,  method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>    
+    <% end %>
+</table>
